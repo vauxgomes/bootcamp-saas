@@ -1,0 +1,27 @@
+# Node
+node_modules
+.env
+npm-debug.log
+
+# Backend specific (if applicable)
+backend/node_modules/
+backend/.env
+backend/*.log
+
+# Frontend specific (if applicable)
+frontend/node_modules/
+frontend/.env
+frontend/*.log
+frontend/build/ # Ou dist/, depende do bundler do frontend
+
+# OS Generated Files
+.DS_Store
+.vscode/
+
+# Logs
+logs
+*.log
+
+# Docker
+*.swp
+.dockerignore
