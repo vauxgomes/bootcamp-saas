@@ -23,6 +23,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { Loader2 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
+import { toast } from 'sonner'
 import { z } from 'zod'
 
 const signUpSchema = z.object({
@@ -31,7 +32,7 @@ const signUpSchema = z.object({
   password: z
     .string()
     .trim()
-    .min(6, { message: 'Senha deve ter pelo menos 6 caracteres' })
+    .min(8, { message: 'Senha deve ter pelo menos 8 caracteres' })
 })
 
 const SignUpForm = () => {
@@ -56,6 +57,14 @@ const SignUpForm = () => {
       {
         onSuccess: () => {
           router.push('/dashboard')
+        },
+        onError: (ctx) => {
+          if (ctx.error.code === 'USER_ALREADY_EXISTS') {
+            toast.error('Usuário já existe')
+            return
+          }
+
+          toast.error('Erro ao criar conta, tente novamente')
         }
       }
     )
