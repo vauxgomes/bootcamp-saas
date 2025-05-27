@@ -78,7 +78,12 @@ const SignInForm = () => {
                 <FormItem>
                   <FormLabel>Senha</FormLabel>
                   <FormControl>
-                    <Input placeholder="Digite sua senha" {...field} />
+                    <Input
+                      placeholder="Digite sua senha"
+                      type="password"
+                      autoComplete="false"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
