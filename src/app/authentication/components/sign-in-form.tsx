@@ -22,8 +22,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
-const signUpSchema = z.object({
-  name: z.string().trim().min(1, { message: 'Nome é obrigatório' }),
+const signInSchema = z.object({
   email: z.string().trim().email({ message: 'E-mail inválido' }),
   password: z
     .string()
@@ -31,17 +30,16 @@ const signUpSchema = z.object({
     .min(6, { message: 'Senha deve ter pelo menos 6 caracteres' })
 })
 
-const SignUpForm = () => {
-  const form = useForm<z.infer<typeof signUpSchema>>({
-    resolver: zodResolver(signUpSchema),
+const SignInForm = () => {
+  const form = useForm<z.infer<typeof signInSchema>>({
+    resolver: zodResolver(signInSchema),
     defaultValues: {
-      name: '',
       email: '',
       password: ''
     }
   })
 
-  function onSubmit(values: z.infer<typeof signUpSchema>) {
+  function onSubmit(values: z.infer<typeof signInSchema>) {
     console.log(values)
   }
 
@@ -51,28 +49,14 @@ const SignUpForm = () => {
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
           {/* Header */}
           <CardHeader>
-            <CardTitle>Criar conta</CardTitle>
+            <CardTitle>Login</CardTitle>
             <CardDescription>
-              Crie uma nova conta para acessar nossos serviços.
+              Faça login na sua conta para acessar nossos serviços.
             </CardDescription>
           </CardHeader>
 
           {/* Form Fields */}
           <CardContent className="space-y-4">
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Username</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Digite seu nome" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
             <FormField
               control={form.control}
               name="email"
@@ -114,4 +98,4 @@ const SignUpForm = () => {
   )
 }
 
-export default SignUpForm
+export default SignInForm
