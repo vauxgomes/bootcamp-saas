@@ -1,0 +1,20 @@
+{
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#9747ff",
+    "statusBar.foreground": "#ffffff",
+    "statusBar.noFolderBackground": "#9747ff",
+    "statusBar.noFolderForeground": "#ffffff",
+    "statusBar.debuggingBackground": "#6c2fb0",
+    "statusBar.debuggingForeground": "#ffffff",
+    "statusBarItem.hoverBackground": "#b368ff",
+    "statusBarItem.activeBackground": "#7a37cc",
+
+    // Novas propriedades para o botão de "Close Workspace" / "Remove Window"
+    "statusBarItem.errorBackground": "#cc3333", // Fundo para itens de erro, pode ser usado para fechar
+    "statusBarItem.errorForeground": "#ffffff", // Texto para itens de erro
+    "statusBarItem.warningBackground": "#e6a600", // Fundo para itens de aviso
+    "statusBarItem.warningForeground": "#ffffff", // Texto para itens de aviso
+    "statusBarItem.remoteBackground": "#9747ff", // Fundo para itens remotos (como SSH/WSL)
+    "statusBarItem.remoteForeground": "#ffffff" // Texto para itens remotos
+  }
+}
